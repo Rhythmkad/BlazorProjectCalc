@@ -1,0 +1,136 @@
+﻿@page "/index"
+
+@using BlazorProjectCalc1.Models
+
+<h1>A00245057</h1>
+
+<div class="card mx-auto mt-5" style="width: 30rem;">
+    <div class="card-header">Calculator</div>
+
+    <div class="card-body">
+        <EditForm Model="@model" OnInvalidSubmit="OperationValidation">
+
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group">
+                <label>Value1</label>
+                <InputNumber @bind-Value="model.Input1" class="form-control">
+
+
+                </InputNumber>
+            </div>
+
+
+            <div class="form-group">
+                <label>Value2</label>
+                <InputNumber @bind-Value="model.Input2" class="form-control">
+
+                </InputNumber>
+            </div>
+
+            <div class="form-group">
+                <label><b>Result: </b></label>
+                <input readonly @bind="total" class="form-control" />
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <button @onclick="Addition" class="btn btn-warning btn-block">+</button>
+                </div>
+                <div class="col-sm-2">
+                    <button @onclick="Subtraction" class="btn btn-primary btn-block">-</button>
+                </div>
+
+                <div class="col-sm-2">
+                    <button @onclick="Multiplication" class="btn btn-success btn-block">*</button>
+                </div>
+                <div class="col-sm-2">
+                    <button @onclick="Division" class="btn btn-info btn-block">/</button>
+                </div>
+
+                <div class="col-sm-2">
+                    <button onclick="clear" type="reset" class="btn btn-light btn-block">clr</button>
+                </div>
+
+            </div>
+
+            <!-- <button type="submit" @onclick="Operations" class="btn btn-primary btn-block" >calculate</button>-->
+
+
+        </EditForm>
+
+    </div>
+</div>
+
+@code{
+    private CalcModel model = new CalcModel();
+
+    <!-- private string Add = "+";
+     private string Sub = "-";
+     private string Mul = "*";
+     private string Div = "/";-->
+
+    private double total;
+
+
+    private void OperationValidation()
+    {
+        Console.WriteLine("OnValidSubmit");
+
+
+
+    }
+
+
+
+    <!--private void Operations()
+      {
+          if (Add == "+")
+          {
+              total = model.Input1 + model.Input2;
+
+          }
+          else if (Sub == "-")
+          {
+              total = model.Input1 - model.Input2;
+
+          }
+          else if (Mul == "*")
+          {
+              total = model.Input1 * model.Input2;
+
+          }
+          else if (Div == "/")
+          {
+              total = model.Input1 / model.Input2;
+
+          }
+          else
+          {
+              Console.WriteLine("Error");
+          }
+      }-->
+
+
+
+    void Addition()
+    {
+        total = model.Input1 + model.Input2;
+    }
+
+    void Subtraction()
+    {
+        total = model.Input1 - model.Input2;
+    }
+
+    void Multiplication()
+    {
+        total = model.Input1 * model.Input2;
+    }
+
+    void Division()
+    {
+        total = model.Input1 / model.Input2;
+    }
+}
