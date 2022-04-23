@@ -15,7 +15,7 @@
 
             <div class="form-group">
                 <label>Value1</label>
-                <InputNumber @bind-Value="model.Input1" class="form-control">
+                <InputNumber @bind-Value="model.Input1" ID="Label1" class="form-control">
 
 
                 </InputNumber>
@@ -24,14 +24,14 @@
 
             <div class="form-group">
                 <label>Value2</label>
-                <InputNumber @bind-Value="model.Input2" class="form-control">
+                <InputNumber @bind-Value="model.Input2" ID="Label2" class="form-control">
 
                 </InputNumber>
             </div>
 
             <div class="form-group">
-                <label><p>Result: </p></label>
-                <input readonly @bind="total" class="form-control" />
+                <label><b>Result: </b></label>
+                <input readonly @bind="total" id="Label3" class="form-control" />
             </div>
 
             <div class="row">
